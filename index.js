@@ -223,10 +223,16 @@ SonDegerlendirmeyiAl(degerlendirmeler);
 	]
 */
 
-function PuanaGoreDegerlendirmeAl(/* Kodlar buraya */) {
-  /* Kodlar buraya */
+function PuanaGoreDegerlendirmeAl(dizi, gelenPuan) {
+  const array2 = [];
+  for (let i = 0; i < dizi.length; i++) {
+    if (Math.floor(dizi[i].puan) == gelenPuan) {
+      array2.push(dizi[i]);
+    }
+    console.log(array2);
+  }
 }
-
+PuanaGoreDegerlendirmeAl(degerlendirmeler, 4);
 /*  BONUS 2:    
 	UzunDegerlendirmeleriAl fonksiyonuna aşağıdakileri uygulayın:
 	1. Tüm değerlendirmeleri içeren diziyi alacak
@@ -234,10 +240,16 @@ function PuanaGoreDegerlendirmeAl(/* Kodlar buraya */) {
 	
 */
 
-function UzunDegerlendirmeleriAl(/* Kodlar buraya */) {
-  /* Kodlar buraya */
+function UzunDegerlendirmeleriAl(dizi) {
+  const array2 = [];
+  for (let i = 0; i < dizi.length; i++) {
+    if (dizi[i].geribildirim.split(" ").length > 15) {
+      array2.push(dizi[i]);
+    }
+    console.log(array2);
+  }
 }
-
+UzunDegerlendirmeleriAl(degerlendirmeler);
 /*  BONUS 3:  
 	Bu ek görevde degerlendirmeler dizisi kullanılmayacak!  Bu görevde kendi nesnenizi yaratmanız gerekmektedir.
 	
@@ -254,11 +266,21 @@ function UzunDegerlendirmeleriAl(/* Kodlar buraya */) {
 	Şu şekilde metotu çağıralım araba1.surus(100)
 	Bu 110 döndürmelidir çünkü başlangıç kilometre sayacını 10 olarak tanımladık ve 100 km arabayı sürdük.
 */
+const araba = {
+  km: 0,
+  surus: function (surusMiktari) {
+    araba.km = araba.km + surusMiktari;
+  },
+};
 
-function arabaYapici(/* Kodlar buraya */) {
-  /* Kodlar buraya */
+function arabaYapici(surusMiktari) {
+  araba.surus(surusMiktari);
+  return araba;
 }
 
+console.log(arabaYapici(5));
+
+console.log(arabaYapici(25));
 /*  Buradan aşağıdaki kodları değiştirmeyin lütfen */
 function sa() {
   console.log("Kodlar çalışıyor");
